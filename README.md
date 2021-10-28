@@ -1,0 +1,1 @@
+to run locally, execute `trunk serve`
