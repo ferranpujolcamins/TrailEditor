@@ -6,6 +6,9 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+chrono = "^0.4.19"
+geo-types = "^0.7.2"
+gpx = "^0.8.5"
 leaflet = "^0.2.1"
 seed = "^0.8.0"
 web-sys = { version = "^0.3.55", features = ["console"] }
