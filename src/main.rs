@@ -1,5 +1,7 @@
+use rfd::AsyncFileDialog;
 use leaflet::LatLng;
 use seed::{prelude::*, *};
+use futures::executor::block_on;
 
 fn main() {
     App::start("app", init, update, view);
@@ -14,7 +16,24 @@ enum Msg {
 fn init(_: Url, orders: &mut impl Orders<Msg>) -> Model {
     // Cannot initialize Leaflet until the map element has rendered.
     orders.after_next_render(init_map);
+    orders.after_next_render(open_file_dialog);
     Model::default()
+}
+
+fn open_file_dialog(reader_info: RenderInfo) {
+    let future = _open_file_dialog(reader_info);
+    block_on(future);
+}
+
+async fn _open_file_dialog(_: RenderInfo) {
+    let file = AsyncFileDialog::new()
+        .add_filter("gpx", &["gpx"])
+        .pick_file()
+        .await;
+
+    if let Some(file) = file {
+        let data = file.read().await;
+    }
 }
 
 fn init_map(_: RenderInfo) {
