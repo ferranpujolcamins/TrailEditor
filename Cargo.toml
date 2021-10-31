@@ -12,5 +12,6 @@ gpx = "^0.8.5"
 leaflet = "^0.2.1"
 rfd = "^0.5.1"
 seed = "^0.8.0"
+seed_styles = { git = "https://github.com/seed-rs/styles_hooks", package = "seed_styles", branch = "main" }
 web-sys = { version = "^0.3.55", features = ["console"] }
     

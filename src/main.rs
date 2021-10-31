@@ -1,10 +1,13 @@
-use rfd::AsyncFileDialog;
-use leaflet::LatLng;
-use seed::{prelude::*, *};
 use futures::executor::block_on;
+use leaflet::LatLng;
+use rfd::AsyncFileDialog;
+use seed::{prelude::*, *};
+
+use trail_editor::view::TopBar;
 
 fn main() {
     App::start("app", init, update, view);
+    let i: TopBar;
 }
 
 type Model = i32;
@@ -56,8 +59,6 @@ fn view(model: &Model) -> Node<Msg> {
     div![
         "This is a counter: ",
         button![model, ev(Ev::Click, |_| Msg::Increment),],
-        div![
-            id!["map"]
-        ]
+        div![id!["map"]]
     ]
 }
