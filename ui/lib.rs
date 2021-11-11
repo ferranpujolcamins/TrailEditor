@@ -1,4 +1,4 @@
-// Copyright (C) 2021 Ferran Pujol CAmins
+// Copyright (C) 2021 Ferran Pujol Camins
 // 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -13,6 +13,11 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-pub use top_bar::TopBar;
 
-mod top_bar;
+
+fn reducer(state: State, event: Event) -> (State, LazyAsync<Event>)
+
+trait View<State, BackendView> {
+    fn render(state: State) -> BackendView;
+    fn outputs() -> (Stream<i32>, Stream<>, ...)
+}

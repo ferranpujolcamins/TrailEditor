@@ -1,4 +1,4 @@
-// Copyright (C) 2021 Ferran Pujol CAmins
+// Copyright (C) 2021 Ferran Pujol Camins
 // 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -13,16 +13,28 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+// Copyright (C) 2021 Ferran Pujol Camins
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as
+// published by the Free Software Foundation, either version 3 of the
+// License, or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 use futures::executor::block_on;
 use leaflet::LatLng;
 use rfd::AsyncFileDialog;
 use seed::{prelude::*, *};
 
-use trail_editor::view::TopBar;
-
 fn main() {
     App::start("app", init, update, view);
-    let i: TopBar;
 }
 
 type Model = i32;
@@ -72,8 +84,7 @@ fn update(msg: Msg, model: &mut Model, _: &mut impl Orders<Msg>) {
 
 fn view(model: &Model) -> Node<Msg> {
     div![
-        "This is a counter: ",
-        button![model, ev(Ev::Click, |_| Msg::Increment),],
+        trail_editor::component::top_bar::view(),
         div![id!["map"]]
     ]
 }

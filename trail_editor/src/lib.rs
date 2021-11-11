@@ -1,4 +1,4 @@
-// Copyright (C) 2021 Ferran Pujol CAmins
+// Copyright (C) 2021 Ferran Pujol Camins
 // 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -13,4 +13,19 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#map { height: 980px; }
+
+
+
+
+
+//#![feature(type_alias_impl_trait)]
+//#![feature(trace_macros)]
+//trace_macros!(true);
+
+pub mod model;
+pub mod gpx;
+pub mod component;
+
+enum Message {
+    TopBar(component::top_bar::Message)
+}
