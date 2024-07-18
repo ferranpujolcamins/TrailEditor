@@ -14,15 +14,8 @@
  - You should have received a copy of the GNU Affero General Public License
  - along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -}
+ 
+module Util
+where
 
-module Test.Main where
-
-import Prelude
-
-import Effect (Effect)
-import Effect.Class.Console (log)
-
-main :: Effect Unit
-main = do
-  log "🍝"
-  log "You should add some tests."
+foreign import formatGeo :: String -> String -> Number -> String
